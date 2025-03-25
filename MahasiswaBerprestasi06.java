@@ -18,7 +18,7 @@ public class MahasiswaBerprestasi06 {
         }
     }
 
-    int sequentialSearching(double cari){
+    /* int sequentialSearching(double cari){
         int posisi = -1;
         for (int j=0; j<listMhs.length; j++) {
             if (listMhs[j].ipk==cari) {
@@ -27,7 +27,7 @@ public class MahasiswaBerprestasi06 {
             }
         }
         return posisi;
-    }
+    } */
 
     void tampilPosisi(double x, int pos){
         if (pos!= -1) {
@@ -48,41 +48,20 @@ public class MahasiswaBerprestasi06 {
         }
     }
 
-    /* void bubbleSort() {
-        for (int i = 0; i < idx - 1; i++) {
-            for (int j = 1; j < idx - i; j++) {
-                if (listMhs[j].ipk > listMhs[j - 1].ipk) {
-                    Mahasiswa06 tmp = listMhs[j];
-                    listMhs[j] = listMhs[j - 1];
-                    listMhs[j - 1] = tmp;
-                }
+    int findBinarySearch(double cari, int left, int right){
+        int mid;
+        if (right>=left) {
+            mid =(left+right)/2;
+            if (cari ==listMhs[mid].ipk) {
+                return (mid);
+            }
+            else if (listMhs[mid].ipk < cari) {
+                return findBinarySearch(cari, left, mid - 1);
+            }
+            else {
+                return findBinarySearch(cari, mid + 1, right);
             }
         }
+        return -1;
     }
-
-    void selectionSort() {
-        for(int i=0;i<idx-1;i++){
-            int idxMin=i;
-            for(int j=i+1;j<idx;j++){
-                if (listMhs[j].ipk < listMhs[idxMin].ipk) {
-                    idxMin=j;
-                }
-            }
-            Mahasiswa06 tmp = listMhs[idxMin];
-            listMhs[idxMin]=listMhs[i];
-            listMhs[i]=tmp;
-        }
-    }
-
-    void InsertionSort() {
-        for (int i = 1; i < idx; i++) {
-            Mahasiswa06 tmp = listMhs[i];
-            int j = i;
-            while (j > 0 && listMhs[j - 1].ipk < tmp.ipk) {
-                listMhs[j] = listMhs[j - 1];
-                j--;
-            }
-            listMhs[j] = tmp;
-        }
-    } */
 }
